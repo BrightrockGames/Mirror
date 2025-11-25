@@ -64,7 +64,7 @@ namespace Mirror
 #if UNITY_2020_3_OR_NEWER
                             Debug.LogWarning($"{identity.name} was open in Prefab Edit Mode while launching with Mirror. If this causes issues, please let us know.");
 #else
-                            Debug.LogError($"{identity.name} is currently open in Prefab Edit Mode. Please open the actual scene before launching Mirror.");
+                            Debug.LogError($"{identity.name} is currently open in Prefab Edit Mode. Please open the actual scene before launching Mirror.", identity);
                             EditorApplication.isPlaying = false;
 #endif
                         }
@@ -74,8 +74,7 @@ namespace Mirror
 
                             // nothing good will happen when trying to launch with invalid sceneIds.
                             // show an error and stop playing immediately.
-                            Debug.LogError($"Scene {path} needs to be opened and resaved, because the scene object {identity.name} has no valid sceneId yet.");
-                            EditorApplication.isPlaying = false;
+                            Debug.LogError($"Scene {path} needs to be opened and resaved, because the scene object {identity.name} has no valid sceneId yet.", identity);
                         }
                     }
                 }

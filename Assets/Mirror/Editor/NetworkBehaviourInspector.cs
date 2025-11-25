@@ -3,11 +3,17 @@ using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
+#if ODIN_INSPECTOR
+using BaseEditorClass = Sirenix.OdinInspector.Editor.OdinEditor;
+#else
+using BaseEditorClass = UnityEditor.Editor;
+#endif
+
 namespace Mirror
 {
     [CustomEditor(typeof(NetworkBehaviour), true)]
     [CanEditMultipleObjects]
-    public class NetworkBehaviourInspector : Editor
+    public class NetworkBehaviourInspector : BaseEditorClass
     {
         Type scriptClass;
         bool syncsAnything;
@@ -42,8 +48,15 @@ namespace Mirror
             return ((NetworkBehaviour)serializedObject.targetObject).HasSyncObjects();
         }
 
-        void OnEnable()
-        {
+#if ODIN_INSPECTOR
+        protected override void OnEnable()
+		{
+			base.OnEnable();
+#else
+		protected void OnEnable()
+		{
+#endif
+			
             // sometimes target is null. just return early.
             if (target == null) return;
 
