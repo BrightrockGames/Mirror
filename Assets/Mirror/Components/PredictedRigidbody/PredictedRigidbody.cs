@@ -503,7 +503,7 @@ namespace Mirror
             }
         }
 
-        void Update()
+        protected virtual void Update()
         {
             if (isServer) UpdateServer();
             if (isClientOnly)
@@ -515,13 +515,13 @@ namespace Mirror
             }
         }
 
-        void LateUpdate()
+		protected virtual void LateUpdate()
         {
             // only follow on client-only, not in server or host mode
             if (isClientOnly && mode == PredictionMode.Smooth && physicsCopy) SmoothFollowPhysicsCopy();
         }
 
-        void FixedUpdate()
+		protected virtual void FixedUpdate()
         {
             // on clients (not host) we record the current state every FixedUpdate.
             // this is cheap, and allows us to keep a dense history.

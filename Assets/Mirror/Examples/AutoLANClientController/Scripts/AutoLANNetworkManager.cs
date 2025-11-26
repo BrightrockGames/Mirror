@@ -42,7 +42,7 @@ namespace Mirror.Examples.AutoLANClientController
         /// Runs on both Server and Client
         /// Networking is NOT initialized when this fires
         /// </summary>
-        public override void Start()
+		protected override void Start()
         {
             base.Start();
             if (canvasHUD == null)
@@ -59,7 +59,7 @@ namespace Mirror.Examples.AutoLANClientController
         /// <summary>
         /// Runs on both Server and Client
         /// </summary>
-        public override void LateUpdate()
+        protected override void LateUpdate()
         {
             base.LateUpdate();
         }
@@ -67,7 +67,7 @@ namespace Mirror.Examples.AutoLANClientController
         /// <summary>
         /// Runs on both Server and Client
         /// </summary>
-        public override void OnDestroy()
+		protected override void OnDestroy()
         {
             base.OnDestroy();
             //UnityEngine.Debug.Log("OnDestroy");

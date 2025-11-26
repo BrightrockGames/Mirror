@@ -21,14 +21,14 @@ namespace Mirror.Examples.PlayerTest
         /// Runs on both Server and Client
         /// Networking is NOT initialized when this fires
         /// </summary>
-        public override void Awake()
+		protected override void Awake()
         {
             base.Awake();
         }
 
         #region Unity Callbacks
 
-        public override void OnValidate()
+		protected override void OnValidate()
         {
             base.OnValidate();
         }
@@ -37,7 +37,7 @@ namespace Mirror.Examples.PlayerTest
         /// Runs on both Server and Client
         /// Networking is NOT initialized when this fires
         /// </summary>
-        public override void Start()
+		protected override void Start()
         {
             base.Start();
         }
@@ -45,7 +45,7 @@ namespace Mirror.Examples.PlayerTest
         /// <summary>
         /// Runs on both Server and Client
         /// </summary>
-        public override void LateUpdate()
+		protected override void LateUpdate()
         {
             base.LateUpdate();
         }
@@ -53,7 +53,7 @@ namespace Mirror.Examples.PlayerTest
         /// <summary>
         /// Runs on both Server and Client
         /// </summary>
-        public override void OnDestroy()
+		protected override void OnDestroy()
         {
             base.OnDestroy();
         }

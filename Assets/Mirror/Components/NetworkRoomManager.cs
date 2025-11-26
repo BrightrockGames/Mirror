@@ -97,7 +97,7 @@ namespace Mirror
             }
         }
 
-        public override void OnValidate()
+        protected override void OnValidate()
         {
             base.OnValidate();
 
@@ -661,8 +661,10 @@ namespace Mirror
         /// <summary>
         /// virtual so inheriting classes can roll their own
         /// </summary>
-        public virtual void OnGUI()
+        protected override void OnGUI()
         {
+			base.OnGUI();
+			
             if (!showRoomGUI)
                 return;
 

@@ -22,7 +22,7 @@ namespace Mirror.Examples.Hex2D
         [Header("Diagnostics")]
         [ReadOnly, SerializeField] HexSpatialHash2DInterestManagement hexSpatialHash2DInterestManagement;
 
-        public override void OnValidate()
+		protected override void OnValidate()
         {
             if (Application.isPlaying) return;
             base.OnValidate();

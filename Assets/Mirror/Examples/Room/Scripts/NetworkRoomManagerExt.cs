@@ -95,7 +95,7 @@ namespace Mirror.Examples.NetworkRoom
         }
 
 #if !UNITY_SERVER || UNITY_EDITOR
-        public override void OnGUI()
+        protected override void OnGUI()
         {
             base.OnGUI();
 

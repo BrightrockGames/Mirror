@@ -95,8 +95,9 @@ namespace Mirror
         // fix https://github.com/MirrorNetworking/Mirror/issues/2810
         // both Awake and Enable need to initialize arrays.
         // in case users call SetActive(false) -> SetActive(true).
-        void Awake() => Initialize();
-        void OnEnable() => Initialize();
+        protected virtual void Awake() => Initialize();
+		
+        protected virtual void OnEnable() => Initialize();
 
         protected override void OnValidate()
         {
@@ -116,12 +117,12 @@ namespace Mirror
 #pragma warning restore CS0618
         }
 
-        public virtual void Reset()
+        protected virtual void Reset()
         {
             syncDirection = SyncDirection.ClientToServer;
         }
 
-        void FixedUpdate()
+        protected virtual void FixedUpdate()
         {
             if (!SendMessagesAllowed)
                 return;

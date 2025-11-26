@@ -18,7 +18,7 @@ namespace Mirror.Examples.Hex3D
         [Range(1, 10)]
         public byte spawnPrefabSpacing = 3;
 
-        public override void OnValidate()
+		protected override void OnValidate()
         {
             if (Application.isPlaying) return;
             base.OnValidate();

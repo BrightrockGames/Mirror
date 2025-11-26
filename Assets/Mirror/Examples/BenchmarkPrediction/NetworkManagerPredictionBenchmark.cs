@@ -10,7 +10,7 @@ namespace Mirror.Examples.PredictionBenchmark
         public GameObject spawnPrefab;
         public Bounds spawnArea = new Bounds(new Vector3(0, 2.5f, 0), new Vector3(10f, 5f, 10f));
 
-        public override void Awake()
+		protected override void Awake()
         {
             base.Awake();
 

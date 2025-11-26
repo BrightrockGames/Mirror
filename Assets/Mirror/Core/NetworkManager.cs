@@ -174,7 +174,7 @@ namespace Mirror
         public NetworkManagerMode mode { get; private set; }
 
         // virtual so that inheriting classes' OnValidate() can call base.OnValidate() too
-        public virtual void OnValidate()
+        protected virtual void OnValidate()
         {
             // unreliable full send rate needs to be >= 0.
             // we need to have something to delta compress against.
@@ -202,7 +202,7 @@ namespace Mirror
         // Reset only gets called when the component is added or the user resets the component
         // Thats why we validate these things that only need to be validated on adding the NetworkManager here
         // If we would do it in OnValidate() then it would run this everytime a value changes
-        public virtual void Reset()
+        protected virtual void Reset()
         {
             // make sure someone doesn't accidentally add another NetworkManager
             // need transform.root because when adding to a child, the parent's
@@ -220,7 +220,7 @@ namespace Mirror
         }
 
         // virtual so that inheriting classes' Awake() can call base.Awake() too
-        public virtual void Awake()
+        protected virtual void Awake()
         {
             // Don't allow collision-destroyed second instance to continue.
             if (!InitializeSingleton()) return;
@@ -237,7 +237,7 @@ namespace Mirror
         }
 
         // virtual so that inheriting classes' Start() can call base.Start() too
-        public virtual void Start()
+        protected virtual void Start()
         {
             // Auto-start headless server or client.
             //
@@ -262,13 +262,13 @@ namespace Mirror
         }
 
         // make sure to call base.Update() when overwriting
-        public virtual void Update()
+        protected virtual void Update()
         {
             ApplyConfiguration();
         }
 
         // virtual so that inheriting classes' LateUpdate() can call base.LateUpdate() too
-        public virtual void LateUpdate()
+        protected virtual void LateUpdate()
         {
             UpdateScene();
         }
@@ -792,7 +792,7 @@ namespace Mirror
         }
 
         // virtual so that inheriting classes' OnDestroy() can call base.OnDestroy() too
-        public virtual void OnDestroy()
+        protected virtual void OnDestroy()
         {
             //Debug.Log("NetworkManager destroyed");
             SceneManager.sceneLoaded -= OnSceneLoaded;
@@ -1461,7 +1461,7 @@ namespace Mirror
 
 #if UNITY_EDITOR || (!UNITY_SERVER && DEBUG)
         // keep OnGUI even in builds. useful to debug snap interp.
-        void OnGUI()
+        protected virtual void OnGUI()
         {
             if (!timeInterpolationGui) return;
             NetworkClient.OnGUI();

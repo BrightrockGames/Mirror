@@ -15,7 +15,7 @@ namespace Mirror.Examples.PredictionBenchmark
         public int solverIterations = 200;
         public int solverVelocityIterations = 1;
 
-        public override void Awake()
+		protected override void Awake()
         {
             base.Awake();
 

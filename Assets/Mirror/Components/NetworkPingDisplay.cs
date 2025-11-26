@@ -17,7 +17,7 @@ namespace Mirror
         public int height = 25;
 
 #if !UNITY_SERVER || UNITY_EDITOR
-        void OnGUI()
+		protected virtual void OnGUI()
         {
             // only while client is active
             if (!NetworkClient.active) return;
