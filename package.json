@@ -1,0 +1,9 @@
+{
+  "name": "com.mirror-networking.mirror",
+  "version": "96.8.5",
+  "displayName": "Mirror Networking",
+  "description": "Mirror Networking (Brightrock fork)",
+  "unity": "6000.2",
+  "unityRelease": "0f1",
+  "documentationUrl": "https://github.com/BrightrockGames/Mirror"
+}
