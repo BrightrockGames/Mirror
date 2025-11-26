@@ -25,7 +25,7 @@ namespace Mirror.Examples.AutoLANClientController
         /// Runs on both Server and Client
         /// Networking is NOT initialized when this fires
         /// </summary>
-        public override void Awake()
+        protected override void Awake()
         {
             base.Awake();
             singleton = this;
@@ -33,7 +33,7 @@ namespace Mirror.Examples.AutoLANClientController
 
         #region Unity Callbacks
 
-        public override void OnValidate()
+        protected override void OnValidate()
         {
             base.OnValidate();
         }
