@@ -22,30 +22,33 @@ namespace Mirror
         // does this type sync anything? otherwise we don't need to show syncInterval
         bool SyncsAnything()
         {
-            // check for all SyncVar fields, they don't have to be visible
-            foreach (FieldInfo field in InspectorHelper.GetAllFields(scriptClass, typeof(NetworkBehaviour)))
-            {
-                if (field.IsSyncVar())
-                {
-                    return true;
-                }
-            }
-
-            // has OnSerialize that is not in NetworkBehaviour?
-            // then it either has a syncvar or custom OnSerialize. either way
-            // this means we have something to sync.
-            MethodInfo method = scriptClass.GetMethod("OnSerialize");
-            if (method != null && method.DeclaringType != typeof(NetworkBehaviour))
-            {
-                return true;
-            }
-
-            // SyncObjects are serialized in NetworkBehaviour.OnSerialize, which
-            // is always there even if we don't use SyncObjects. so we need to
-            // search for SyncObjects manually.
-            // Any SyncObject should be added to syncObjects when unity creates an
-            // object so we can check length of list so see if sync objects exists
-            return ((NetworkBehaviour)serializedObject.targetObject).HasSyncObjects();
+			// BRG - always returning true to ensure Sync Settings are always shown
+			return true;
+			
+            // // check for all SyncVar fields, they don't have to be visible
+            // foreach (FieldInfo field in InspectorHelper.GetAllFields(scriptClass, typeof(NetworkBehaviour)))
+            // {
+            //     if (field.IsSyncVar())
+            //     {
+            //         return true;
+            //     }
+            // }
+            //
+            // // has OnSerialize that is not in NetworkBehaviour?
+            // // then it either has a syncvar or custom OnSerialize. either way
+            // // this means we have something to sync.
+            // MethodInfo method = scriptClass.GetMethod("OnSerialize");
+            // if (method != null && method.DeclaringType != typeof(NetworkBehaviour))
+            // {
+            //     return true;
+            // }
+            //
+            // // SyncObjects are serialized in NetworkBehaviour.OnSerialize, which
+            // // is always there even if we don't use SyncObjects. so we need to
+            // // search for SyncObjects manually.
+            // // Any SyncObject should be added to syncObjects when unity creates an
+            // // object so we can check length of list so see if sync objects exists
+            // return ((NetworkBehaviour)serializedObject.targetObject).HasSyncObjects();
         }
 
 #if ODIN_INSPECTOR
