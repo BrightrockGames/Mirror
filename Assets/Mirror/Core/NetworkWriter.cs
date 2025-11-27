@@ -48,7 +48,7 @@ namespace Mirror
         // 1. 'has space' checks are necessary even for fixed sized writers.
         // 2. all writers will eventually be large enough to stop resizing.
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        internal void EnsureCapacity(int value)
+        public void EnsureCapacity(int value)
         {
             if (buffer.Length < value)
             {

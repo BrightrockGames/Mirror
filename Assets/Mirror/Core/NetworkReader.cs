@@ -57,6 +57,9 @@ namespace Mirror
         //    managed. instead, this is considered a 'collection length' limit.
         public const int AllocationLimit = 1024 * 1024 * 16; // 16 MB * sizeof(T)
 
+		public ArraySegment< byte > Buffer => buffer;
+		
+
         public NetworkReader(ArraySegment<byte> segment)
         {
             buffer = segment;
