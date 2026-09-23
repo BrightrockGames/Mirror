@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Mirror.RemoteCalls;
@@ -1132,9 +1132,9 @@ namespace Mirror
                 identity.gameObject.SetActive(true);
 
             // apply local values for VR support
-            identity.transform.localPosition = message.position;
-            identity.transform.localRotation = message.rotation;
-            identity.transform.localScale = message.scale;
+            identity.transform.position = message.position;
+            identity.transform.rotation = message.rotation;
+            identity.transform.scale = message.scale;
 
             // configure flags
             // the below DeserializeClient call invokes SyncVarHooks.
