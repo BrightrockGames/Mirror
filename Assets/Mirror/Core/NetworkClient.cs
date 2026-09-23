@@ -1134,7 +1134,7 @@ namespace Mirror
             // apply local values for VR support
             identity.transform.position = message.position;
             identity.transform.rotation = message.rotation;
-            identity.transform.scale = message.scale;
+            identity.transform.localScale = message.scale;
 
             // configure flags
             // the below DeserializeClient call invokes SyncVarHooks.

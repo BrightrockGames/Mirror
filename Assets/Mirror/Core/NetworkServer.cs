@@ -1557,7 +1557,7 @@ namespace Mirror
                     // use local values for VR support
                     position = identity.transform.position,
                     rotation = identity.transform.rotation,
-                    scale = identity.transform.scale,
+                    scale = identity.transform.localScale,
                     payload = payload
                 };
                 conn.Send(message);
